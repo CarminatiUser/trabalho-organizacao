@@ -1,5 +1,3 @@
-import time
-
 # Cases
 def case_u():
     return ciclos_u
