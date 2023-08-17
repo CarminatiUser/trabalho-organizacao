@@ -17,12 +17,15 @@ def case_s():
 def case_r():
     return ciclos_r
 
+def case_i2():
+    return ciclos_i2
+
 # Dicionário de cases
 cases = {
     "0110111": case_u,
     "0010111": case_u,
     "1101111": case_j,
-    "1100111": case_i,
+    "1100111": case_i2,
     "1100011": case_b,
     "0000011": case_i,
     "0100011": case_s,
@@ -42,14 +45,14 @@ desempenho_org2 = 0
 
 # Loop para solicitar valores duas vezes
 for _ in range(2):
-    clock = int(input("Informe o clock: "))
-    print("Ciclos por Instrução: ")
-    ciclos_u = int(input("Tipo U: "))
-    ciclos_j = int(input("Tipo J: "))
-    ciclos_i = int(input("Tipo I: "))
-    ciclos_b = int(input("Tipo B: "))
-    ciclos_s = int(input("Tipo S: "))
-    ciclos_r = int(input("Tipo R: "))
+    clock = float(input("Informe o clock: "))
+    ciclos_u = float(input("Tipo U: "))
+    ciclos_j = float(input("Tipo J: "))
+    ciclos_i = float(input("Tipo I: "))
+    ciclos_i2 = float(input("Tipo I2: "))
+    ciclos_b = float(input("Tipo B: "))
+    ciclos_s = float(input("Tipo S: "))
+    ciclos_r = float(input("Tipo R: "))
     ciclos_totais = 0
     cont = 0
     
@@ -73,7 +76,7 @@ for _ in range(2):
     for contador, binario in enumerate(binarios, start=1):
         resultado = switch_case(binario)
         if resultado != "Opção inválida.":
-            ciclos_totais += int(resultado)
+            ciclos_totais += float(resultado)
         print(f"CPI {contador}: {resultado}")
     
     # Apresenta os resultados totais
