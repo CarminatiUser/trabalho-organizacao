@@ -56,7 +56,6 @@ for _ in range(2):
     # Abre o arquivo .txt, e separa ele em linhas
     with open('input.txt', 'r') as arquivo:
         linhas = arquivo.readlines()
-        cont += 1
 
     # Salva os ultimos 7 caracteres de cada linha na variavel binarios
     binarios = [linha[-8:].strip() for linha in linhas]
@@ -66,6 +65,7 @@ for _ in range(2):
     # Mostra todas as instrucoes
     for contador, binario in enumerate(binarios, start=1):
         print(f"Instrucao {contador}: {binario}")
+        cont += 1
     
     print()
 
@@ -81,14 +81,14 @@ for _ in range(2):
     print()
     print(f"Ciclos totais: {ciclos_totais}")
     print(f"CPI média {ciclos_totais / cont: .2f}")
-    print(f"Tempo de execução da CPU: {ciclos_totais / clock: .2f}")
+    print(f"Tempo de execução da CPU: {ciclos_totais * clock: .2f}")
     print("__________________________________________________________")
     print()
     
     if _ == 0:
-        desempenho_org1 = ciclos_totais / clock
+        desempenho_org1 = ciclos_totais * clock
     else:
-        desempenho_org2 = ciclos_totais / clock
+        desempenho_org2 = ciclos_totais * clock
 
 # Comparação de desempenho e cálculo da diferença
 if desempenho_org1 < desempenho_org2:
@@ -96,7 +96,7 @@ if desempenho_org1 < desempenho_org2:
     print()
 
     diferenca = desempenho_org2 - desempenho_org1
-    print(f"A diferença de desempenho foi de {diferenca: .2f} segundos.")
+    print(f"A diferença de desempenho foi de {diferenca: .2f} nanosegundos.")
 
     porcentagem = (diferenca)/desempenho_org1 * 100
     print(f"A porcentagem de diferença de desempenho foi de {porcentagem:.2f}%")
@@ -110,7 +110,7 @@ elif desempenho_org2 < desempenho_org1:
     print()
 
     diferenca = desempenho_org1 - desempenho_org2
-    print(f"A diferença de desempenho foi de {diferenca: .2f} segundos.")
+    print(f"A diferença de desempenho foi de {diferenca: .2f} nanosegundos.")
 
     porcentagem = (diferenca)/desempenho_org2 * 100
     print(f"A porcentagem de diferença de desempenho foi de {porcentagem:.2f}%")
